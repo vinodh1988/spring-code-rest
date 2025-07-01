@@ -21,11 +21,15 @@ List<Person> persons = new ArrayList<>();
 	  persons.add(new Person(7, "Sarah", "San Antonio"));
 	  persons.add(new Person(8, "David", "San Diego"));
 	  persons.add(new Person(9, "Laura", "Dallas"));
-	  persons.add(new Person(10, "James", "San Jose"));
+	  persons.add(new Person(10, "James", "New york"));
    }
 
    public List<Person> getPersons() {
 	  return persons;
+   }
+   
+   public void addPerson(Person person) {
+	   persons.add(person);
    }
  public String[] geNames() {
    return new String[] { 
