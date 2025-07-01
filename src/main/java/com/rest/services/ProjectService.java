@@ -17,4 +17,10 @@ public List<Project> getAllProjects() {
 	return projectRepository.findAll();
 
    }
+
+
+public void addProject(Project project) {
+	  projectRepository.save(project);// it works for both insert and update operations
+   }
+
 }
