@@ -18,5 +18,8 @@
      <li> <%= n %> </li>
  <% } %>
  </ul>
+ <hr/>
+ <h3> Session Value : <%=request.getAttribute("svalue") %></h3>
+ <h3> Application Value : <%=request.getAttribute("avalue") %></h3>
 </body>
 </html>
