@@ -21,5 +21,5 @@ public class Project {
   @Column
   private String technology;
   @Column
-  private String teamsize;
+  private Integer teamsize;
 }

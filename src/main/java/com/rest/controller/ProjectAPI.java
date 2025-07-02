@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.entity.Project;
 import com.rest.services.ProjectService;
 import com.rest.utilities.RecordAlreadyExistsException;
 import com.rest.utilities.RecordNotFoundException;
+
+
+
 
 @RestController
 @RequestMapping("/api/v1/projects")
@@ -48,4 +52,9 @@ public class ProjectAPI {
 		return new ResponseEntity<>("Project deleted successfully", HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "", method = {RequestMethod.PUT,RequestMethod.PATCH})
+	public ResponseEntity<Project> updateProject(@RequestBody Project project) throws RecordNotFoundException {
+		Project updatedProject = projectService.updateProject(project);
+		return new ResponseEntity<>(updatedProject, HttpStatus.OK);
+	}
 }
