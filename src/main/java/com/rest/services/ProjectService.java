@@ -51,4 +51,8 @@ public Project updateProject(Project project) throws RecordNotFoundException {
 	project.setTechnology(project.getTechnology() == null ? p.getTechnology() : project.getTechnology());
 	return projectRepository.save(project);
    }
+
+public List<Project> getProjectsBySize(int min, int max) {
+	return projectRepository.findBySize(min, max);
+   }
 }
