@@ -1,4 +1,4 @@
-package com.rest.services;
+package com.rest.utilities;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;

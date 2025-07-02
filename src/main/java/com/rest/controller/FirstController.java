@@ -5,9 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.rest.services.ApplicationState;
 import com.rest.services.DataService;
-import com.rest.services.SessionState;
+import com.rest.utilities.ApplicationState;
+import com.rest.utilities.SessionState;
 
 @Controller
 @RequestMapping("/web")

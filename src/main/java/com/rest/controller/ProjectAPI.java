@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.entity.Project;
 import com.rest.services.ProjectService;
+import com.rest.utilities.RecordAlreadyExistsException;
 
 @RestController
 @RequestMapping("/api/v1/projects")
@@ -27,7 +28,8 @@ public class ProjectAPI {
 	}
 	
 	@PostMapping("")
-	public ResponseEntity<Project> addProject(@RequestBody Project project) {
+	public ResponseEntity<Project> addProject(@RequestBody Project project)
+	throws RecordAlreadyExistsException { // Custom exception to handle record already exists scenario
 		projectService.addProject(project);
 		return new ResponseEntity<>(project, HttpStatus.CREATED);
 	}
