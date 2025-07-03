@@ -15,12 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.entity.Person;
 import com.rest.services.DataService;
+import com.rest.utilities.MessageSender;
 
 @RestController
 @RequestMapping("/api/v1/people")
 public class FirstAPI {
  @Autowired
  private DataService dataService;
+ 
+ @Autowired
+ private MessageSender messageSender;
  Logger logger = LoggerFactory.getLogger(FirstAPI.class);
 	@GetMapping("")
 	public List<Person> getPeople() {
@@ -31,7 +35,7 @@ public class FirstAPI {
 	@PostMapping("")
 	public ResponseEntity<Person> addPerson(@RequestBody Person person) {
 		 dataService.addPerson(person);
-		 
+		 messageSender.send("Person added: " + person.getSno());
 		 return new ResponseEntity<>(person, HttpStatus.CREATED);
 	}
 }
