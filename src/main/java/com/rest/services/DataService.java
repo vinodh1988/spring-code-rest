@@ -31,6 +31,13 @@ List<Person> persons = new ArrayList<>();
    public void addPerson(Person person) {
 	   persons.add(person);
    }
+   
+   public Person getPersonBySno(int sno) {
+	   return persons.stream()
+			   .filter(p -> p.getSno() == sno)
+			   .findFirst()
+			   .orElse(null);
+   }
  public String[] geNames() {
    return new String[] { 
 	 "John Doe", 
